@@ -24,7 +24,7 @@ public class MainPageTests extends TestBase{
             "Python, https://hyperskill.org/categories/1"
     })
     @ParameterizedTest(name = "Открытие страницы {1} при клике на {0}")
-    @Tag("Link")
+    @Tags({@Tag("UI"), @Tag("Severe")})
     void openStudyGroupLinkTest(String target, String actualUrl) {
         hyperSkillMainpage.openPage();
         hyperSkillMainpage.clickTargetBar(target);
@@ -32,7 +32,7 @@ public class MainPageTests extends TestBase{
     }
     @CsvFileSource(resources = "/exploreBar.csv")
     @ParameterizedTest(name = "При нажатии на кнопку в выпадающем списке {0} открывается страница с Заголовком {1}")
-    @Tag("Link")
+    @Tags({@Tag("UI"), @Tag("Blocker")})
     void openCommunityGroupLinkTest(String value, String url) {
         hyperSkillMainpage.openPage();
         hyperSkillMainpage.clickTargetBar(value);
@@ -48,7 +48,7 @@ public class MainPageTests extends TestBase{
 
     @MethodSource("selenideButtonsTest")
     @ParameterizedTest(name = "При нажатии на кнопку навигации {0} открывается страница с заголовком {1} первого уровня")
-    @Tag("Link")
+    @Tags({@Tag("UI"), @Tag("Minor")})
     void openHeaderNavLinkTest(String navLink, String article) {
         hyperSkillMainpage.openPage();
         hyperSkillMainpage.clickTargetBar(navLink);
